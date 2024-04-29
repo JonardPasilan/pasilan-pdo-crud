@@ -1,18 +1,18 @@
 <?php
 // Check existence of id parameter before processing further
-if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
+if(isset($_GET["product_id"]) && !empty(trim($_GET["product_id"]))){
     // Include config file
-    require_once "config.php";
+    require_once "../db/config.php";
     
     // Prepare a select statement
-    $sql = "SELECT * FROM employees WHERE id = :id";
+    $sql = "SELECT * FROM products WHERE product_id = :product_id";
     
     if($stmt = $pdo->prepare($sql)){
         // Bind variables to the prepared statement as parameters
-        $stmt->bindParam(":id", $param_id);
+        $stmt->bindParam(":product_id", $param_product_id);
         
         // Set parameters
-        $param_id = trim($_GET["id"]);
+        $param_product_id = trim($_GET["product_id"]);
         
         // Attempt to execute the prepared statement
         if($stmt->execute()){
@@ -22,12 +22,12 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 
                 // Retrieve individual field value
-                $name = $row["name"];
-                $address = $row["address"];
-                $salary = $row["salary"];
+                $product_name = $row["product_name"];
+                $product_details = $row["product_details"];
+                $product_retail_price = $row["product_retail_price"];
             } else{
                 // URL doesn't contain valid id parameter. Redirect to error page
-                header("location: error.php");
+                header("location: ../public/error.php");
                 exit();
             }
             
@@ -43,7 +43,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     unset($pdo);
 } else{
     // URL doesn't contain id parameter. Redirect to error page
-    header("location: error.php");
+    header("location: ../public/error.php");
     exit();
 }
 ?>
@@ -66,20 +66,20 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="mt-5 mb-3">View Record</h1>
+                    <h1 class="mt-5 mb-3">View Product Record</h1>
                     <div class="form-group">
-                        <label>Name</label>
-                        <p><b><?php echo $row["name"]; ?></b></p>
+                        <label>Product Name</label>
+                        <p><b><?php echo $row["product_name"]; ?></b></p>
                     </div>
                     <div class="form-group">
-                        <label>Address</label>
-                        <p><b><?php echo $row["address"]; ?></b></p>
+                        <label>Product Details</label>
+                        <p><b><?php echo $row["product_details"]; ?></b></p>
                     </div>
                     <div class="form-group">
-                        <label>Salary</label>
-                        <p><b><?php echo $row["salary"]; ?></b></p>
+                        <label>Retail Price</label>
+                        <p><b><?php echo $row["product_retail_price"]; ?></b></p>
                     </div>
-                    <p><a href="index.php" class="btn btn-primary">Back</a></p>
+                    <p><a href="../index.php" class="btn btn-primary">Back</a></p>
                 </div>
             </div>        
         </div>
