@@ -17,9 +17,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body{ font: 14px sans-serif; text-align: center; }
+        body {
+            background-image: url('../media/sakura.gif'); /* Background image */
+            background-size: cover; /* Adjust as needed */
+            background-repeat: no-repeat; /* Adjust as needed */
+            font: 14px sans-serif; 
+            text-align: center;
+}
+
     </style>
 </head>
 <body>
+    
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
     <p>
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
@@ -79,9 +88,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     // Close connection
                     unset($pdo);
                     ?>
+                    
                 </div>
             </div>        
         </div>
     </div>
+
 </body>
 </html>
