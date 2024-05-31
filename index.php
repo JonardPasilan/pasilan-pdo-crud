@@ -12,7 +12,7 @@
         /* Remove the overflow-x property */
         /* overflow-x: hidden; */
         /* Background properties */
-        background-image: url('https://i.pinimg.com/originals/66/47/5d/66475daf3c22310e2f1bbe6f105db3d9.gif');
+        background-image: url('https://i.pinimg.com/originals/be/f0/5e/bef05e397070e9ef000065c27778656c.gif');
         background-color: #f8f9fa;
         background-size: cover;
         background-position: center;
@@ -20,7 +20,8 @@
         margin: 0;
         /* Ensuring body takes full height of viewport */
         min-height: 100vh;
-        color: white; /* Change text color to white */
+        color: black; /* Change text color to white */
+        font-weight: bold;
     }
     
 
