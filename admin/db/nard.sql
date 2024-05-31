@@ -38,23 +38,6 @@ CREATE TABLE `addresses` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `addresses`
---
-
-INSERT INTO `addresses` (`id`, `street_address`, `city`, `state`, `postal_code`, `country`, `payment_id`, `created_at`) VALUES
-(1, 'Sample Street 123', 'Sample City', 'Sample State', '12345', 'Sample Country', 1, '2024-05-29 08:00:00'),
-(2, 'Test Road 456', 'Testville', 'Test State', '67890', 'Testland', 2, '2024-05-29 09:00:00'),
-(3, 'Main Avenue', 'Metroville', 'Metro State', '54321', 'Metrotopia', 3, '2024-05-29 10:00:00'),
-(4, 'Park Street', 'Parkville', 'Park State', '98765', 'Parkland', 4, '2024-05-29 11:00:00'),
-(5, 'Oak Boulevard', 'Oakland', 'Oak State', '13579', 'Oaktopia', 5, '2024-05-29 12:00:00'),
-(9, 'tankulan', 'none', 'mindanao', '21321231232132321312', 'Philippines', 14, '2024-05-30 14:05:02');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payments`
---
 
 CREATE TABLE `payments` (
   `id` int(6) UNSIGNED NOT NULL,
@@ -64,31 +47,7 @@ CREATE TABLE `payments` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `payments`
---
 
-INSERT INTO `payments` (`id`, `product_name`, `price`, `payment_method`, `created_at`) VALUES
-(1, 'Softball Bat', 120.00, 'Credit Card', '2024-05-29 08:00:00'),
-(2, 'Softball Glove', 80.00, 'PayPal', '2024-05-29 09:00:00'),
-(3, 'Softballs Set', 40.00, 'Cash on Delivery', '2024-05-29 10:00:00'),
-(4, 'Batting Helmet', 60.00, 'Google Pay', '2024-05-29 11:00:00'),
-(5, 'Catcher\'s Gear Set', 150.00, 'Apple Pay', '2024-05-29 12:00:00'),
-(6, 'Softball Bat', 120.00, 'Credit Card', '2024-05-29 13:00:00'),
-(7, 'Softball Glove', 80.00, 'PayPal', '2024-05-29 14:00:00'),
-(8, 'Softballs Set', 40.00, 'Cash on Delivery', '2024-05-29 15:00:00'),
-(9, 'Batting Helmet', 60.00, 'Google Pay', '2024-05-29 16:00:00'),
-(10, 'Catcher\'s Gear Set', 150.00, 'Apple Pay', '2024-05-29 17:00:00'),
-(11, 'eweqweq', 321.00, 'PayMaya', '2024-05-30 12:39:37'),
-(12, 'eweqweq', 321.00, 'PayMaya', '2024-05-30 13:05:32'),
-(13, 'eweqweq', 321.00, 'PayMaya', '2024-05-30 14:04:23'),
-(14, 'softball gloves', 99999999.99, 'PayPal', '2024-05-30 14:04:45');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `products`
---
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
