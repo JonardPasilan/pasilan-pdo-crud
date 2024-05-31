@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2024 at 09:46 AM
+-- Generation Time: May 30, 2024 at 04:08 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,8 +34,21 @@ CREATE TABLE `addresses` (
   `state` varchar(100) NOT NULL,
   `postal_code` varchar(20) NOT NULL,
   `country` varchar(100) NOT NULL,
+  `payment_id` int(6) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `addresses`
+--
+
+INSERT INTO `addresses` (`id`, `street_address`, `city`, `state`, `postal_code`, `country`, `payment_id`, `created_at`) VALUES
+(1, 'Sample Street 123', 'Sample City', 'Sample State', '12345', 'Sample Country', 1, '2024-05-29 08:00:00'),
+(2, 'Test Road 456', 'Testville', 'Test State', '67890', 'Testland', 2, '2024-05-29 09:00:00'),
+(3, 'Main Avenue', 'Metroville', 'Metro State', '54321', 'Metrotopia', 3, '2024-05-29 10:00:00'),
+(4, 'Park Street', 'Parkville', 'Park State', '98765', 'Parkland', 4, '2024-05-29 11:00:00'),
+(5, 'Oak Boulevard', 'Oakland', 'Oak State', '13579', 'Oaktopia', 5, '2024-05-29 12:00:00'),
+(9, 'tankulan', 'none', 'mindanao', '21321231232132321312', 'Philippines', 14, '2024-05-30 14:05:02');
 
 -- --------------------------------------------------------
 
@@ -50,6 +63,26 @@ CREATE TABLE `payments` (
   `payment_method` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `product_name`, `price`, `payment_method`, `created_at`) VALUES
+(1, 'Softball Bat', 120.00, 'Credit Card', '2024-05-29 08:00:00'),
+(2, 'Softball Glove', 80.00, 'PayPal', '2024-05-29 09:00:00'),
+(3, 'Softballs Set', 40.00, 'Cash on Delivery', '2024-05-29 10:00:00'),
+(4, 'Batting Helmet', 60.00, 'Google Pay', '2024-05-29 11:00:00'),
+(5, 'Catcher\'s Gear Set', 150.00, 'Apple Pay', '2024-05-29 12:00:00'),
+(6, 'Softball Bat', 120.00, 'Credit Card', '2024-05-29 13:00:00'),
+(7, 'Softball Glove', 80.00, 'PayPal', '2024-05-29 14:00:00'),
+(8, 'Softballs Set', 40.00, 'Cash on Delivery', '2024-05-29 15:00:00'),
+(9, 'Batting Helmet', 60.00, 'Google Pay', '2024-05-29 16:00:00'),
+(10, 'Catcher\'s Gear Set', 150.00, 'Apple Pay', '2024-05-29 17:00:00'),
+(11, 'eweqweq', 321.00, 'PayMaya', '2024-05-30 12:39:37'),
+(12, 'eweqweq', 321.00, 'PayMaya', '2024-05-30 13:05:32'),
+(13, 'eweqweq', 321.00, 'PayMaya', '2024-05-30 14:04:23'),
+(14, 'softball gloves', 99999999.99, 'PayPal', '2024-05-30 14:04:45');
 
 -- --------------------------------------------------------
 
@@ -73,11 +106,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `description`, `price`, `rrp`, `quantity`, `img`, `date_added`) VALUES
-(15, 'Dodge charger', 'BEST-IN-CLASS NATURALLY ASPIRATED 485 HORSEPOWER', 4000000, 3000000, 50, 'https://i.pinimg.com/564x/79/14/de/7914de85ab4cf76c11f34bf5fb17273b.jpg', '2024-05-29 15:36:40'),
-(16, 'Mustang', 'turbocharged 2.3-liter four-cylinder EcoBoost engine rated at 315 horsepower and 350 pound-feet', 5000000, 4000000, 50, 'https://i.pinimg.com/564x/d8/35/d6/d835d631dcd07ff58817d4cf0bf6aa6b.jpg', '2024-05-29 15:40:23'),
-(17, 'Camaro', 'The Camaro\'s bold design and thrilling performance', 6000000, 5000000, 50, 'https://i.pinimg.com/564x/df/55/56/df5556770a75deb4c8ea21e0311341b7.jpg', '2024-05-29 15:43:12'),
-(18, 'Miata', 'lightweight two-person sports car manufactured', 4000000, 3500000, 50, 'https://i.pinimg.com/564x/1e/4d/89/1e4d8966dc02cbf73e71dfd4d87626c1.jpg', '2024-05-29 15:45:48');
-
+(1, 'Dodge charger', 'BEST-IN-CLASS NATURALLY ASPIRATED 485 HORSEPOWER', 4000000, 3000000, 50, 'https://i.pinimg.com/564x/79/14/de/7914de85ab4cf76c11f34bf5fb17273b.jpg', '2024-05-29 15:36:40'),
+(2, 'Mustang', 'turbocharged 2.3-liter four-cylinder EcoBoost engine rated at 315 horsepower and 350 pound-feet', 5000000, 4000000, 50, 'https://i.pinimg.com/564x/d8/35/d6/d835d631dcd07ff58817d4cf0bf6aa6b.jpg', '2024-05-29 15:40:23'),
+(3, 'Camaro', 'The Camaro\'s bold design and thrilling performance', 6000000, 5000000, 50, 'https://i.pinimg.com/564x/df/55/56/df5556770a75deb4c8ea21e0311341b7.jpg', '2024-05-29 15:43:12'),
+(4, 'Miata', 'lightweight two-person sports car manufactured', 4000000, 3500000, 50, 'https://i.pinimg.com/564x/1e/4d/89/1e4d8966dc02cbf73e71dfd4d87626c1.jpg', '2024-05-29 15:45:48');
 -- --------------------------------------------------------
 
 --
@@ -92,6 +124,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
+(1, 'admin', '$2y$10$kGp4g1TjBK4XwLIwRbBHSeZ4W5FpPbYoB1ap5NfFUjUPAcE3KR5QG', '2024-04-29 16:39:58'),
+(2, 'nard', '$2y$10$26m/9gmMDpV4k0Y9UXLHI.TnvIRgoyNdkeQ/NC.XN6v3Q5ZgMz0dO', '2024-05-29 09:12:28');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -99,24 +139,13 @@ CREATE TABLE `users` (
 -- Indexes for table `addresses`
 --
 ALTER TABLE `addresses`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `payment_id` (`payment_id`);
 
 --
 -- Indexes for table `payments`
 --
 ALTER TABLE `payments`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -127,25 +156,23 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `products`
+-- Constraints for dumped tables
 --
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `users`
+-- Constraints for table `addresses`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `addresses`
+  ADD CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
