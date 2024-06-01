@@ -48,7 +48,7 @@ $conn->close();
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: white;
             margin: 0;
             padding: 0;
         }
@@ -57,15 +57,15 @@ $conn->close();
             max-width: 400px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: orange;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
         }
 
         h2 {
             text-align: center;
             margin-bottom: 20px;
-            color: #333;
+            color: black;
         }
 
         form {
@@ -76,7 +76,7 @@ $conn->close();
         label {
             font-weight: bold;
             margin-bottom: 5px;
-            color: #555;
+            color: black;
         }
 
         input[type="text"],
@@ -105,9 +105,19 @@ $conn->close();
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+        .image {
+            position: absolute;
+            top: 120px; /* Adjust top position */
+            left: 100px; /* Adjust left position */
+            width: 300px; /* Adjust image width */
+           
+        }
     </style>
 </head>
 <body>
+    <img src="https://i.pinimg.com/originals/04/76/8c/04768ce51fa5222fd0e5ec2b499196eb.gif" alt="image" class="image">
+
+    <img src="https://i.pinimg.com/originals/ee/f6/a4/eef6a46e97fc7428ad471c2e02bdb2da.gif" alt="Image 2" class="image" style="top: 120px; left: 960px;">
     <div class="container">
         <h2>Make Payment</h2>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

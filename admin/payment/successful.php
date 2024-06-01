@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+			background-color: whitesmoke; /* background color */
             margin: 0;
             padding: 0;
             display: flex;
@@ -18,32 +18,31 @@
 
         .container {
             text-align: center;
-            background-color: #fff;
-            padding: 20px;
+            background-color: white;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			box-shadow: 0 0 10px rgba(255, 165, 0, 0.9);
             position: fixed;
             top: 20%;
         }
 
         h2 {
-            color: #333;
+            color: black;
             margin-bottom: 20px;
         }
 
         p {
-            color: #555;
+            color: black;
             margin-bottom: 20px;
         }
 
         a {
             text-decoration: none;
-            color: #007bff;
+            color: blue;
             font-weight: bold;
         }
 
         a:hover {
-            color: #0056b3;
+            color: black;
         }
         html, body {
 	position: relative;

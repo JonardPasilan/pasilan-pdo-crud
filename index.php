@@ -9,25 +9,18 @@
     <style>
     body {
         font-family: Arial, sans-serif;
-        /* Remove the overflow-x property */
-        /* overflow-x: hidden; */
-        /* Background properties */
-        background-image: url('https://i.pinimg.com/originals/be/f0/5e/bef05e397070e9ef000065c27778656c.gif');
+        background-image: url('https://i.pinimg.com/originals/b3/3d/06/b33d0666d4b65b2e92bfe804aaf68fa4.gif');
         background-color: #f8f9fa;
         background-size: cover;
         background-position: center;
-        /* Adjusting margin to 0 for the body to remove default margin */
-        margin: 0;
-        /* Ensuring body takes full height of viewport */
-        min-height: 100vh;
-        color: black; /* Change text color to white */
+        margin: 0;/* Adjusting margin to 0 for the body to remove default margin */
+        min-height: 100vh;/* Ensuring body takes full height of viewport */
+        color: black; /* Change text color to black */
         font-weight: bold;
     }
     
-
-    /* Define a class for the grid */
     .card-grid {
-        display: grid;
+        display: grid; /* Define a class for the grid */
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid with minimum item width of 250px */
         gap: 20px; /* Gap between grid items */
         padding: 20px; /* Add padding around the grid container */
@@ -36,11 +29,13 @@
         overflow-x: auto; /* Add horizontal scrollbar */
     }
 
-    /* Style for individual cards */
-    .card {
+  
+    .card {  /* Style for individual cards */
         width: 100%; /* Ensure cards take full width of their container */
         background-color: transparent;
-        border: 2px solid #ffffff; 
+        border: 4px solid #ffffff; 
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.9);
+
     }
 
     .card-img-top{
@@ -78,7 +73,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-transparent bg-transparent">
     <a class="navbar-brand" href="#">
         <!-- Removed the Bootstrap logo -->
     </a>
