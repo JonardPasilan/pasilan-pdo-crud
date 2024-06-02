@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-			background-color: whitesmoke; /* background color */
+			background-color:orangered; /* background color */
             margin: 0;
             padding: 0;
             display: flex;
@@ -18,9 +18,9 @@
 
         .container {
             text-align: center;
-            background-color: white;
+            background-color: orange;
             border-radius: 8px;
-			box-shadow: 0 0 10px rgba(255, 165, 0, 0.9);
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
             position: fixed;
             top: 20%;
         }
@@ -37,7 +37,7 @@
 
         a {
             text-decoration: none;
-            color: blue;
+            color: white;
             font-weight: bold;
         }
 
@@ -87,7 +87,7 @@ body {
 		
 		width: 50%;
 		height: .2em;
-		background-color: #8897ec;
+		background-color: black;
 	}
 	
 	.steps {
@@ -106,7 +106,7 @@ body {
 			margin: 0 2em;
 			box-sizing: content-box;
 
-			color: #8897ec;
+			color: green;                   /*color sa lingin*/
 			background-color: currentColor;
 			border: .25em solid white;
 			border-radius: 50%;

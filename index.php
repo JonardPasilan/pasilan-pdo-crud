@@ -68,6 +68,14 @@
         justify-content: center;
         margin-top: 20px; /* Add some top margin for separation */
     }
+    .btn-custom {
+        background-color: white;
+        color: black; /* Text color */
+        transition: background-color 0.3s; /* Smooth transition for color change */
+    }
+    .btn-custom:hover {
+        background-color: violet; /* Change to your desired hover color */
+    }
 </style>
 
 </head>
@@ -121,9 +129,11 @@
                             <span class="price">Price: ₱${product.rrp}</span>
                             <p class="card-text">${product.description}</p>
                             <p class="card-text">Quantity: ${product.quantity}</p>
-                            <button class="btn btn-success" onclick="showProductModal('${product.title}', '${product.rrp}')">
-                                <i class="fas fa-cart-plus"></i> Add to Cart
+
+                            <button class="btn btn-custom" onclick="showProductModal('${product.title}', '${product.rrp}')">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
                             </button>
+
                         </div>
                     </div>`;
                     productsContainer.innerHTML += cardHTML;
